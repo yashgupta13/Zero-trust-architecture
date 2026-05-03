@@ -114,7 +114,7 @@ export default function PAMPage({ user }) {
               {loading ? (
                 <LoadingSpinner message="Loading approvers..." />
               ) : approvers.length === 0 ? (
-                <p className="text-cyber-muted text-sm font-mono">No approvers found in Keycloak.</p>
+                <p className="text-cyber-muted text-sm font-mono">No approvers found.</p>
               ) : (
                 <div className="space-y-2 mt-2">
                   {approvers.map(email => (

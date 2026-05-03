@@ -18,13 +18,13 @@ The project will utilize various technologies, including:
 
 - Trust Engine: Python, Machine Learning Algorithms, Markov chains
 - Policy Engine: Python
-- Access Proxy: Nginx, OAuth, Flask framework
+- Access Proxy: Nginx, Local User Store Authentication, Flask framework
 
 ## Getting Started
 
 To get started with the project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/LeoneOdinga/ZeroTrustArchitecture.git`
+1. Clone the repository: `git clone https://github.com/yashgupta13/Zero-trust-architecture.git`
 2. Install dependencies and set up the required environment.
 
 ## Contribution Guidelines

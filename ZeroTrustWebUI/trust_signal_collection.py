@@ -143,71 +143,7 @@ def load_events_data(file_path):
         print(f"Error decoding JSON file: {e}")
         return None
 
-'''
 
-HANDLING PROCESSING AND STORAGE OF EVENTS DATA
-
-'''
-
-def store_keycloak_events(keycloak_admin):
-    query_params = {
-        "dateFrom": "2023-01-01",
-        "dateTo": "2023-12-31",
-        "max": 10000,
-    }
-
-    events_data = keycloak_admin.get_events(query=query_params)
-    cleaned_data = []
-
-    for event in events_data:
-        cleaned_event = {
-            'time': event.get('time', None),
-            'type': event.get('type', None),
-            'user_id': event.get('userId', None),
-            'ip_address': event.get('ipAddress', None)
-        }
-
-        if 'details' in event:
-            details = event['details']
-            cleaned_event['auth_type'] = details.get('auth_type', None)
-            cleaned_event['token_id'] = details.get('token_id', None)
-
-        cleaned_event['session_id'] = event.get('sessionId', None)
-
-        cleaned_data.append(cleaned_event)
-
-    file_path = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)), 'events.json')
-
-    try:
-        existing_data = []
-        new_id = 1
-
-        if os.path.exists(file_path):
-            with open(file_path, 'r') as file:
-                existing_data = json.load(file)
-                if existing_data:
-                    last_entry = existing_data[-1]
-                    new_id = last_entry['ID'] + 1
-
-        for i, event in enumerate(cleaned_data, start=new_id):
-            event_exists = False
-            for existing_event in existing_data:
-                if event['time'] == existing_event['time'] and event['user_id'] == existing_event['user_id']:
-                    event_exists = True
-                    break
-
-            if not event_exists:
-                event['ID'] = i
-                existing_data.append(event)
-
-        with open(file_path, 'w') as file:
-            json.dump(existing_data, file, indent=4)
-
-    except (json.JSONDecodeError, FileNotFoundError) as e:
-        print(f"Error occurred while handling the JSON file: {e}")
-
-    except IOError as e:
-        print(f"Error occurred while writing JSON data: {e}")
 
 #get the latest access request data for a particular user_id
 
