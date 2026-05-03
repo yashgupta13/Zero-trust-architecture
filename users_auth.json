@@ -1,0 +1,32 @@
+[
+  {
+    "user_id": "user-001",
+    "username": "admin_user",
+    "email": "admin@cyberdome.local",
+    "password": "admin123",
+    "user_role": "Policy Administrator",
+    "email_verified": true,
+    "totp_enabled": true,
+    "created_timestamp": 1672531200000
+  },
+  {
+    "user_id": "user-002",
+    "username": "approver_alice",
+    "email": "alice@cyberdome.local",
+    "password": "alice123",
+    "user_role": "Approver",
+    "email_verified": true,
+    "totp_enabled": false,
+    "created_timestamp": 1675209600000
+  },
+  {
+    "user_id": "user-003",
+    "username": "viewer_bob",
+    "email": "bob@cyberdome.local",
+    "password": "bob123",
+    "user_role": "Security Viewer",
+    "email_verified": true,
+    "totp_enabled": false,
+    "created_timestamp": 1677628800000
+  }
+]

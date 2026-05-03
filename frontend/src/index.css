@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-cyber-bg text-cyber-text font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse at 20% 20%, rgba(0, 212, 255, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(0, 255, 136, 0.03) 0%, transparent 50%);
+    min-height: 100vh;
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-cyber-bg; }
+  ::-webkit-scrollbar-thumb { @apply bg-cyber-border rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-cyber-muted; }
+}
+
+@layer components {
+  .cyber-card {
+    @apply bg-cyber-card border border-cyber-border rounded-xl p-6 backdrop-blur-sm;
+    background: linear-gradient(135deg, rgba(17,28,45,0.9) 0%, rgba(13,21,32,0.95) 100%);
+    box-shadow: 0 0 0 1px rgba(0,212,255,0.05), 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .cyber-card:hover {
+    border-color: rgba(0,212,255,0.3);
+    box-shadow: 0 0 0 1px rgba(0,212,255,0.1), 0 8px 40px rgba(0,212,255,0.08), 0 0 60px rgba(0,0,0,0.5);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    @apply bg-cyber-cyan text-cyber-bg font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 hover:opacity-90 active:scale-95 disabled:opacity-40 disabled:cursor-not-allowed;
+    box-shadow: 0 0 20px rgba(0,212,255,0.25);
+  }
+  .btn-primary:hover:not(:disabled) {
+    box-shadow: 0 0 30px rgba(0,212,255,0.45);
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border border-cyber-border text-cyber-text font-medium px-5 py-2.5 rounded-lg transition-all duration-200 hover:border-cyber-cyan hover:text-cyber-cyan active:scale-95;
+  }
+
+  .btn-danger {
+    @apply bg-cyber-red/10 border border-cyber-red/40 text-cyber-red font-medium px-5 py-2.5 rounded-lg transition-all duration-200 hover:bg-cyber-red/20 active:scale-95;
+  }
+
+  .btn-success {
+    @apply bg-cyber-emerald/10 border border-cyber-emerald/40 text-cyber-emerald font-medium px-5 py-2.5 rounded-lg transition-all duration-200 hover:bg-cyber-emerald/20 active:scale-95;
+  }
+
+  .cyber-input {
+    @apply w-full bg-cyber-surface border border-cyber-border rounded-lg px-4 py-2.5 text-cyber-textLight placeholder-cyber-muted focus:outline-none focus:border-cyber-cyan focus:ring-1 focus:ring-cyber-cyan/30 transition-all duration-200;
+  }
+
+  .cyber-select {
+    @apply w-full bg-cyber-surface border border-cyber-border rounded-lg px-4 py-2.5 text-cyber-textLight focus:outline-none focus:border-cyber-cyan focus:ring-1 focus:ring-cyber-cyan/30 transition-all duration-200;
+  }
+
+  .cyber-textarea {
+    @apply w-full bg-cyber-surface border border-cyber-border rounded-lg px-4 py-2.5 text-cyber-textLight placeholder-cyber-muted focus:outline-none focus:border-cyber-cyan focus:ring-1 focus:ring-cyber-cyan/30 transition-all duration-200 resize-none;
+  }
+
+  .cyber-label {
+    @apply block text-xs font-semibold uppercase tracking-widest text-cyber-muted mb-1.5;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+  .status-approved { @apply status-badge bg-cyber-emerald/10 text-cyber-emerald border border-cyber-emerald/30; }
+  .status-denied   { @apply status-badge bg-cyber-red/10 text-cyber-red border border-cyber-red/30; }
+  .status-pending  { @apply status-badge bg-cyber-yellow/10 text-cyber-yellow border border-cyber-yellow/30; }
+
+  .section-title {
+    @apply text-xs font-bold uppercase tracking-widest text-cyber-muted mb-4;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@layer utilities {
+  .text-glow-cyan { text-shadow: 0 0 20px rgba(0,212,255,0.6); }
+  .text-glow-emerald { text-shadow: 0 0 20px rgba(0,255,136,0.6); }
+  .border-glow-cyan { box-shadow: 0 0 20px rgba(0,212,255,0.2), inset 0 0 20px rgba(0,212,255,0.02); }
+}
